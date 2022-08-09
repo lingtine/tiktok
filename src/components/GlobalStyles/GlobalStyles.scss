@@ -1,0 +1,41 @@
+@import 'normalize.css';
+
+:root {
+    //color
+    --while: #fff;
+    --black: #000;
+    --primary-color: rgba(254, 44, 85, 1);
+    --text-color: #333;
+
+    //size
+    --primary-height-header: 60px;
+    --primary-width-display: 1150px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
+input,
+button,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    text-decoration: none;
+    color: var(--text-color);
+}
