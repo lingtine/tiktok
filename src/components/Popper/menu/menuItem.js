@@ -15,7 +15,6 @@ function MenuItem({ data, onclick }) {
             leftIcon={<FontAwesomeIcon icon={data.icon} />}
             to={data.to}
             onClick={onclick}
-            //comment
         >
             {data.content}
         </Button>
