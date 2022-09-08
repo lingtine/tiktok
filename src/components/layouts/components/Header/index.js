@@ -24,6 +24,8 @@ import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/menu';
 import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -145,7 +147,7 @@ function Header() {
                         <>
                             <Tippy content={'Tin Nhắn'}>
                                 <button className={cx('chat-box')}>
-                                    <FontAwesomeIcon icon={faEnvelope} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -158,16 +160,15 @@ function Header() {
                     )}
                     <Menu items={isLogin ? menuLogin : menuItems}>
                         {isLogin ? (
-                            <img
-                                src={
-                                    'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/784eca88f8bf6b4e86154b47d400745c~c5_100x100.jpeg?x-expires=1660122000&x-signature=Fz9DZflDEti6F63TCwEX%2F3iax8w%3D'
-                                }
+                            <Image
+                                src={''}
                                 className={cx('avatar-img')}
                                 alt={'avatar'}
+                                fallBack="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/ec241cb65a7d0150da4083bc8d16adc8.jpeg?x-expires=1662778800&x-signature=sXpDgspqKy2KQ4WGyJJ9nI%2Fzq%2F4%3D"
                             />
                         ) : (
                             <button className={cx('menu-items')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                                <UploadIcon />
                             </button>
                         )}
                     </Menu>
