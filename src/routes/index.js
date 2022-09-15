@@ -17,6 +17,11 @@ const publicRoutes = [
         component: Upload,
         layout: HeaderOnly,
     },
+    {
+        path: '/@:nickname',
+        component: Upload,
+        layout: DefaultLayout,
+    },
 ];
 
 const privateRoutes = [];

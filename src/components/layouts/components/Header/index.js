@@ -16,21 +16,18 @@ import {
     faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
-import HeadLessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
-import { useState } from 'react';
-import { Wrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
+
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/menu';
 import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons';
 import { UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
     const menuItems = [
         {
             content: 'Tiếng việt',
@@ -91,49 +88,9 @@ function Header() {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img inco src={images.logo} alt="Logo-TiTok"></img>
+                    <img src={images.logo} alt="Logo-TiTok"></img>
                 </div>
-                <HeadLessTippy
-                    visible={searchResult.length}
-                    interactive={true}
-                    render={() => (
-                        <div className={cx('search-result')} tabIndex={-1}>
-                            <Wrapper>
-                                <h4 className={cx('search-title')}>
-                                    Tài Khoản
-                                </h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </Wrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input
-                            placeholder={'Tìm kiếm tên tài khoản và video'}
-                            className={cx('search-input')}
-                        ></input>
-                        <div className={cx('search-buttons')}>
-                            <button className={cx('search-delete')}>
-                                <FontAwesomeIcon
-                                    icon={faTimesCircle}
-                                ></FontAwesomeIcon>
-                            </button>
-                            <button className={cx('search-loading')}>
-                                <FontAwesomeIcon
-                                    icon={faSpinner}
-                                ></FontAwesomeIcon>
-                            </button>
-                        </div>
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon
-                                icon={faMagnifyingGlass}
-                            ></FontAwesomeIcon>
-                        </button>
-                    </div>
-                </HeadLessTippy>
+                <Search />
                 <div className={cx('action')}>
                     <>
                         <Button
@@ -164,7 +121,6 @@ function Header() {
                                 src={''}
                                 className={cx('avatar-img')}
                                 alt={'avatar'}
-                                fallBack="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/ec241cb65a7d0150da4083bc8d16adc8.jpeg?x-expires=1662778800&x-signature=sXpDgspqKy2KQ4WGyJJ9nI%2Fzq%2F4%3D"
                             />
                         ) : (
                             <button className={cx('menu-items')}>
