@@ -1,6 +1,5 @@
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
-import images from '~/assets/img';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faSpinner,
@@ -17,13 +16,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons';
 
+import images from '~/assets/img';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/menu';
-import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons';
 import { UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routers from '~/config/routers';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -88,7 +90,9 @@ function Header() {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Logo-TiTok"></img>
+                    <Link to={routers.root} className={cx('logo-link')}>
+                        <img src={images.logo} alt="Logo-TiTok"></img>
+                    </Link>
                 </div>
                 <Search />
                 <div className={cx('action')}>

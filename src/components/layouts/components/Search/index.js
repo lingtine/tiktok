@@ -50,6 +50,12 @@ function Search() {
         setSearchResult([]);
         inputElement.current.focus();
     };
+
+    const handleChange = (e) => {
+        let valueInput = e.target.value;
+
+        if (!valueInput.startsWith(' ')) setSearchValue(valueInput);
+    };
     return (
         <HeadLessTippy
             visible={showResult && searchResult.length > 0}
@@ -74,9 +80,7 @@ function Search() {
                     value={searchValue}
                     placeholder={'Tìm kiếm tên tài khoản và video'}
                     className={cx('search-input')}
-                    onChange={(e) => {
-                        handleTypingResult(e);
-                    }}
+                    onChange={handleChange}
                     onFocus={() => setShowResult(true)}
                 ></input>
                 {!!searchValue ? (
@@ -100,7 +104,10 @@ function Search() {
                 ) : (
                     <></>
                 )}
-                <button className={cx('search-btn')}>
+                <button
+                    className={cx('search-btn')}
+                    onMouseDown={(e) => e.preventDefault()}
+                >
                     <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
                 </button>
             </div>
