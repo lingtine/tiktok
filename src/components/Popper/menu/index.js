@@ -4,7 +4,6 @@ import classNames from 'classnames/bind';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Header from './header';
 import MenuItem from './menuItem';
-import Button from '~/components/Button';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);

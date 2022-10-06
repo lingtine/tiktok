@@ -42,9 +42,6 @@ function Search() {
 
     const inputElement = useRef();
 
-    const handleTypingResult = (e) => {
-        setSearchValue(e.target.value);
-    };
     const handleClearResult = () => {
         setSearchValue('');
         setSearchResult([]);
@@ -57,61 +54,70 @@ function Search() {
         if (!valueInput.startsWith(' ')) setSearchValue(valueInput);
     };
     return (
-        <HeadLessTippy
-            visible={showResult && searchResult.length > 0}
-            interactive={true}
-            onClickOutside={() => {
-                setShowResult(false);
-            }}
-            render={() => (
-                <div className={cx('search-result')} tabIndex={-1}>
-                    <Wrapper>
-                        <h4 className={cx('search-title')}>Tài Khoản</h4>
-                        {searchResult.map((account) => {
-                            return <AccountItem account={account} />;
-                        })}
-                    </Wrapper>
-                </div>
-            )}
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={inputElement}
-                    value={searchValue}
-                    placeholder={'Tìm kiếm tên tài khoản và video'}
-                    className={cx('search-input')}
-                    onChange={handleChange}
-                    onFocus={() => setShowResult(true)}
-                ></input>
-                {!!searchValue ? (
-                    <div className={cx('search-status')}>
-                        {isLoading ? (
-                            <FontAwesomeIcon
-                                className={cx('search-loading')}
-                                icon={faSpinner}
-                            ></FontAwesomeIcon>
-                        ) : (
-                            <button
-                                className={cx('search-delete')}
-                                onClick={() => handleClearResult()}
-                            >
-                                <FontAwesomeIcon
-                                    icon={faTimesCircle}
-                                ></FontAwesomeIcon>
-                            </button>
-                        )}
+        <div>
+            <HeadLessTippy
+                visible={showResult && searchResult.length > 0}
+                interactive={true}
+                onClickOutside={() => {
+                    setShowResult(false);
+                }}
+                render={() => (
+                    <div className={cx('search-result')} tabIndex={-1}>
+                        <Wrapper>
+                            <h4 className={cx('search-title')}>Tài Khoản</h4>
+                            {searchResult.map((account, index) => {
+                                return (
+                                    <AccountItem
+                                        key={index}
+                                        account={account}
+                                    />
+                                );
+                            })}
+                        </Wrapper>
                     </div>
-                ) : (
-                    <></>
                 )}
-                <button
-                    className={cx('search-btn')}
-                    onMouseDown={(e) => e.preventDefault()}
-                >
-                    <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
-                </button>
-            </div>
-        </HeadLessTippy>
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputElement}
+                        value={searchValue}
+                        placeholder={'Tìm kiếm tên tài khoản và video'}
+                        className={cx('search-input')}
+                        onChange={handleChange}
+                        onFocus={() => setShowResult(true)}
+                    ></input>
+                    {!!searchValue ? (
+                        <div className={cx('search-status')}>
+                            {isLoading ? (
+                                <FontAwesomeIcon
+                                    className={cx('search-loading')}
+                                    icon={faSpinner}
+                                ></FontAwesomeIcon>
+                            ) : (
+                                <button
+                                    className={cx('search-delete')}
+                                    onClick={() => handleClearResult()}
+                                >
+                                    <FontAwesomeIcon
+                                        icon={faTimesCircle}
+                                    ></FontAwesomeIcon>
+                                </button>
+                            )}
+                        </div>
+                    ) : (
+                        <></>
+                    )}
+                    <button
+                        className={cx('search-btn')}
+                        onMouseDown={(e) => e.preventDefault()}
+                    >
+                        <FontAwesomeIcon
+                            icon={faMagnifyingGlass}
+                        ></FontAwesomeIcon>
+                    </button>
+                </div>
+            </HeadLessTippy>
+        </div>
     );
 }
 

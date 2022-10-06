@@ -1,9 +1,9 @@
-export const UploadIcon = (
+export const UploadIcon = ({
     className,
     width = '2.6rem',
     height = '2.6rem',
     ...pros
-) => (
+}) => (
     <svg
         {...pros}
         className={className}

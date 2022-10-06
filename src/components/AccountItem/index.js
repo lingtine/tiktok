@@ -6,9 +6,13 @@ import Image from '~/components/Image/index';
 import { Link } from 'react-router-dom';
 const cx = classNames.bind(Styles);
 
-function AccountItem({ account }) {
+function AccountItem({ account, ...passProp }) {
     return (
-        <Link to={`/@${account.nickname}`} className={cx('wrapper')}>
+        <Link
+            to={`/@${account.nickname}`}
+            className={cx('wrapper')}
+            {...passProp}
+        >
             <Image className={cx('avatar')} src={account.avatar} alt="" />
             <div className={cx('info')}>
                 <h4 className={cx('name')}>

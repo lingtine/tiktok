@@ -2,11 +2,7 @@ import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faSpinner,
-    faTimesCircle,
-    faMagnifyingGlass,
     faPlus,
-    faEllipsisVertical,
     faGlobe,
     faQuestionCircle,
     faKeyboard,
@@ -16,7 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 import images from '~/assets/img';
 import Button from '~/components/Button';

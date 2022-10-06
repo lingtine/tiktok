@@ -9,10 +9,11 @@ function MenuItem({ data, onclick }) {
     const classes = cx('menu-item', {
         separate: data.separate,
     });
+    const isHasIcon = !!data.icon;
     return (
         <Button
             className={classes}
-            leftIcon={<FontAwesomeIcon icon={data.icon} />}
+            leftIcon={isHasIcon && <FontAwesomeIcon icon={data.icon} />}
             to={data.to}
             onClick={onclick}
         >
