@@ -1,5 +1,5 @@
 import { Home, Following, Upload } from '~/pages';
-import { DefaultLayout, HeaderOnly } from '~/components/layouts';
+import { DefaultLayout, HeaderOnly } from '~/layouts';
 import routers from '~/config/routers';
 
 const publicRoutes = [

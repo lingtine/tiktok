@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { useState, useRef, useEffect } from 'react';
 import { useDebounce } from '~/hooks';
 
-import * as searchServices from '~/apiSevices/searchSevices';
+import * as searchServices from '~/sevices/searchSevices';
 import { Wrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import HeadLessTippy from '@tippyjs/react/headless';
